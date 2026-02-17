@@ -7,19 +7,9 @@
   <title>Menú – Dulce Marrano</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
-    
-    @font-face {
-      font-family: 'Pink Broccoli';
-      src: url('assets/fonts/PinkBroccoli-Regular.woff2') format('woff2'),
-           url('assets/fonts/PinkBroccoli-Regular.woff') format('woff'),
-           url('assets/fonts/PinkBroccoli-Regular.ttf') format('truetype');
-      font-weight: normal;
-      font-style: normal;
-      font-display: swap;
-    }
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@400;500;600;700&display=swap');
     
     :root {
       --texto: #654418;
@@ -81,11 +71,10 @@
     }
     
     .loader-logo {
-      width: 120px;
-      height: 120px;
+      width: 140px;
+      height: 140px;
       margin-bottom: 1.5rem;
       animation: logoFloat 1s ease-in-out infinite alternate;
-      filter: brightness(0) invert(1);
     }
     
     @keyframes logoFloat {
@@ -95,10 +84,11 @@
     
     .loader-texto {
       color: var(--blanco);
-      font-family: 'Pink Broccoli', serif;
+      font-family: 'Playfair Display', serif;
       font-size: 1.8rem;
       letter-spacing: 0.05em;
       animation: textoPulse 1s ease-in-out infinite;
+      font-weight: 700;
     }
     
     @keyframes textoPulse {
@@ -122,9 +112,9 @@
     
     .cabecera h1 {
       margin: 0;
-      font-family: 'Pink Broccoli', serif;
+      font-family: 'Playfair Display', serif;
       font-size: 1.8rem;
-      font-weight: normal;
+      font-weight: 700;
       color: var(--texto);
       letter-spacing: 0.03em;
       text-shadow: 0 1px 2px var(--sombra-suave);
@@ -272,8 +262,8 @@
     }
     
     .plato-nombre { 
-      font-family: 'Pink Broccoli', serif;
-      font-weight: normal;
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
       font-size: 1.1rem; 
       color: var(--texto); 
       margin: 0 0 0.4rem 0; 
@@ -411,12 +401,13 @@
 <body>
   <!-- Loader -->
   <div class="loader" id="loader">
-    <object class="loader-logo" type="image/svg+xml" data="assets/logo.svg" aria-label="Logo Dulce Marrano">
-      <!-- Fallback si el SVG no carga -->
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4129 3791" fill="white">
-        <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="400" font-family="serif">DM</text>
-      </svg>
-    </object>
+    <svg class="loader-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="white" aria-label="Logo Dulce Marrano">
+      <!-- Logo estilizado DM con diseño elegante -->
+      <circle cx="100" cy="100" r="90" fill="none" stroke="white" stroke-width="3" opacity="0.3"/>
+      <text x="100" y="120" font-family="'Playfair Display', serif" font-size="80" font-weight="700" text-anchor="middle" fill="white" letter-spacing="0.05em">DM</text>
+      <!-- Decoración sutil -->
+      <circle cx="100" cy="100" r="5" fill="white" opacity="0.6"/>
+    </svg>
     <div class="loader-texto">Dulce Marrano</div>
   </div>
 
