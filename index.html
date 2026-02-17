@@ -216,7 +216,12 @@
     
     /* Tarjetas de platos con glassmorphism mejorado */
     .plato {
-      background: rgba(255, 255, 255, 0.75);
+      background: linear-gradient(
+        135deg,
+        rgba(240, 232, 219, 0.78) 0%,
+        rgba(255, 255, 255, 0.58) 55%,
+        rgba(240, 232, 219, 0.72) 100%
+      );
       backdrop-filter: blur(25px) saturate(180%);
       -webkit-backdrop-filter: blur(25px) saturate(180%);
       border-radius: var(--radio-grande);
@@ -224,8 +229,8 @@
       margin-bottom: 1.25rem;
       box-shadow: 0 8px 32px rgba(101, 68, 24, 0.1), 
                   0 2px 8px rgba(101, 68, 24, 0.08),
-                  inset 0 1px 0 rgba(255, 255, 255, 0.9);
-      border: 1.5px solid rgba(255, 255, 255, 0.4);
+                  inset 0 1px 0 rgba(255, 255, 255, 0.75);
+      border: 1.5px solid rgba(153, 132, 103, 0.18);
       cursor: pointer;
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       position: relative;
@@ -250,7 +255,12 @@
                   0 4px 16px rgba(101, 68, 24, 0.1),
                   inset 0 1px 0 rgba(255, 255, 255, 1);
       border-color: rgba(153, 132, 103, 0.5);
-      background: rgba(255, 255, 255, 0.85);
+      background: linear-gradient(
+        135deg,
+        rgba(240, 232, 219, 0.88) 0%,
+        rgba(255, 255, 255, 0.68) 55%,
+        rgba(240, 232, 219, 0.82) 100%
+      );
     }
     
     .plato:hover::before {
