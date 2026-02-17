@@ -71,9 +71,9 @@
     }
     
     .loader-logo {
-      width: 200px;
+      width: 300px;
       height: auto;
-      max-height: 180px;
+      max-height: 280px;
       animation: logoFloat 1s ease-in-out infinite alternate;
       filter: brightness(0) invert(1);
     }
@@ -102,6 +102,13 @@
       text-align: center;
       box-shadow: 0 4px 24px rgba(101, 68, 24, 0.08),
                   0 1px 3px rgba(101, 68, 24, 0.05);
+    }
+    
+    .cabecera-logo {
+      height: 50px;
+      width: auto;
+      margin-bottom: 0.5rem;
+      filter: drop-shadow(0 2px 4px rgba(101, 68, 24, 0.15));
     }
     
     .cabecera h1 {
@@ -415,6 +422,7 @@
   </div>
 
   <header class="cabecera">
+    <img class="cabecera-logo" src="assets/logo/logo dulce marrano.png" alt="Dulce Marrano">
     <h1 id="titulo-sitio">Dulce Marrano</h1>
     <p class="subtitulo">Menú</p>
     <div class="indicator" id="indicator" aria-hidden="true"></div>
