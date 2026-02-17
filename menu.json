@@ -1,0 +1,226 @@
+{
+  "nombre": "Dulce Marrano",
+  "categorias": [
+    {
+      "id": "entradas",
+      "nombre": "ENTRADAS",
+      "platos": [
+        {
+          "id": "bombas-maduro",
+          "nombre": "BOMBAS DE MADURO",
+          "precio": 14000,
+          "descripcion": "Tres esferas de plátano maduro servidas en salsa de queso y crumble de tocineta."
+        },
+        {
+          "id": "las-criollas",
+          "nombre": "LAS CRIOLLAS PA COMPARTIR",
+          "precio": 15000,
+          "descripcion": "Cuatro arepitas a la parrilla o fritas, servidas con hogao, queso mozzarella y crumble de tocino."
+        },
+        {
+          "id": "empanadas-arrieras",
+          "nombre": "EMPANADAS ARRIERAS",
+          "precio": 19000,
+          "descripcion": "Tres empanadas caseras en masa de hojaldre, rellenas de calentado con todo el sabor tradicional de los paisas."
+        },
+        {
+          "id": "tostones-compartir",
+          "nombre": "TOSTONES PA COMPARTIR",
+          "precio": 35000,
+          "descripcion": "Tres tostones de plátano pintón acompañados de 200 gramos de tocino barriguero y salsa verde de aguacate."
+        },
+        {
+          "id": "ceviche-panceta",
+          "nombre": "CEVICHE DE PANCETA",
+          "precio": 35000,
+          "descripcion": "200 gramos de tocino acevichado, acompañado de tostones."
+        }
+      ]
+    },
+    {
+      "id": "nuestros-fuertes",
+      "nombre": "NUESTROS FUERTES",
+      "platos": [
+        {
+          "id": "bondiola-hawaiana",
+          "nombre": "BONDIOLA HAWAIANA",
+          "precio": 40000,
+          "descripcion": "(300g) asada con un sobrepuesto de mozzarella y trozos de piña, acompañada de papas fritas y ensalada de la casa (se recomienda a punto)."
+        },
+        {
+          "id": "punta-anca-cerdo",
+          "nombre": "PUNTA DE ANCA DE CERDO",
+          "precio": 41000,
+          "descripcion": "Corte semimagro y jugoso (300g) acompañado de papas fritas y ensalada fresca (Se recomienda término medio a punto)."
+        },
+        {
+          "id": "costilla-dulce-pecado",
+          "nombre": "COSTILLA DULCE PECADO",
+          "precio": 64000,
+          "descripcion": "(500g en crudo) Corte Premium extraído del centro del costillar, hecho en cocción lenta y finalizada con un caramelizado de BBQ, acompañado de puré de papa y ensalada fresca."
+        },
+        {
+          "id": "nuestra-picada",
+          "nombre": "NUESTRA PICADA",
+          "precio": 137000,
+          "descripcion": "Lomo caramelizado (200g), Brazo de cerdo a la parrilla (200g), Tocino barriguero (200g), Costillita de cerdo en bbq (200g), Morcillitas baby. Un breve recorrido por nuestros cortes de parrilla y horno, acompañado de papas, arepitas fritas, croquetas de yuca y cascos de tomate fresco."
+        },
+        {
+          "id": "lomo-desgranado",
+          "nombre": "LOMO EN DESGRANADO",
+          "precio": 42000,
+          "descripcion": "Trozos de lomo salteados en almíbar de jugo de mandarina y servidos en cama de maíz desgranado con salsa sour, ripio de papa, crumble de tocino y queso criollo rallado."
+        },
+        {
+          "id": "lomitos-macarrones",
+          "nombre": "LOMITOS CON MACARRONES",
+          "precio": 64000,
+          "descripcion": "Lomitos caramelizados en almíbar de jugo de mandarina servidos con macarrones en salsa de queso."
+        },
+        {
+          "id": "tacos-mixtos",
+          "nombre": "TACOS MIXTOS",
+          "precio": 52000,
+          "descripcion": "Tocino barriguero (150g), Brazo a la parrilla (200g). Mixto de tocino y brazo, troceados y servidos en 3 tacos de maíz amarillo."
+        },
+        {
+          "id": "panceta-troceada",
+          "nombre": "PANCETA TROCEADA",
+          "precio": 53000,
+          "descripcion": "300 gramos de tocino troceado salteada al ajillo y chimichurri, acompañada de puré de papa y ensalada."
+        },
+        {
+          "id": "cubo-crocante",
+          "nombre": "CUBO CROCANTE (MARRANO CRUNCH)",
+          "precio": 73000,
+          "descripcion": "Tocino barriguero hecho en cocción mixta, servido con papa criolla y ensalada de la casa."
+        },
+        {
+          "id": "cazuela-antioquena",
+          "nombre": "CAZUELA ANTIOQUEÑA",
+          "precio": 47000,
+          "descripcion": "Frijoles montañeros, cubos de panceta, trozos de plátano maduro, maíz desgranado, ripio papa y hogao. Todo junto en una cazuela llena de sabores que expresan nuestra identidad Paisa."
+        },
+        {
+          "id": "super-burguer",
+          "nombre": "SUPER BURGUER",
+          "precio": 49000,
+          "descripcion": "Hecha de carne de bondiola pura (300gr) sazonada con toque fino de especias y chile deshidratado, pimienta cayena y una rodaja de piña asada para contrastar sus jugosos sabores. Acompañada de nuestras papas fritas."
+        },
+        {
+          "id": "menu-infantil",
+          "nombre": "MENÚ INFANTIL",
+          "precio": 27000,
+          "descripcion": "Mini hamburguesa hecha de carne de bondiola (150g) pan de papa artesanal y papas a la francesa acompañada de jugo de frutas en tetrapak."
+        }
+      ]
+    },
+    {
+      "id": "amigos-marrano",
+      "nombre": "LOS AMIGOS DEL MARRANO",
+      "platos": [
+        {
+          "id": "churrasco-pollo",
+          "nombre": "CHURRASCO DE POLLO",
+          "precio": 39000,
+          "descripcion": "(400g aprox) Corte semigraso extraído de la pierna pernil con su piel que permite mantenerse más jugosa al llevarse a la parrilla (se recomienda a punto)."
+        },
+        {
+          "id": "pechuga-pollo",
+          "nombre": "PECHUGA DE POLLO",
+          "precio": 42000,
+          "descripcion": "(400g) del corte más magro del ave asada a la Parrilla y acompañado de bombas de Maduro y ensalada fresca (se recomienda a punto)."
+        },
+        {
+          "id": "bowl-pechuga",
+          "nombre": "BOWL DE PECHUGA",
+          "precio": 44000,
+          "descripcion": "Corte magro del ave (400g), asada a la parrilla, porcionada en julianas y servida en cama de vegetales salteados y lechuga fresca (maíz tierno, cebolla, zanahoria, pimentón, champiñones y trocitos de piña)."
+        },
+        {
+          "id": "punta-res",
+          "nombre": "PUNTA DE RES",
+          "precio": 74000,
+          "descripcion": "400 gramos de anca de res a la parrilla, acompañada de bombas de plátano maduro y ensalada fresca (se recomienda término medio y máximo a punto)."
+        },
+        {
+          "id": "baby-beef",
+          "nombre": "BABY BEEF",
+          "precio": 64000,
+          "descripcion": "300 g del corte más noble y magro de la res a la parrilla, acompañado de bombas de Maduro y ensalada fresca (Se recomienda término medio o a punto)."
+        },
+        {
+          "id": "rib-eye",
+          "nombre": "RIB EYE",
+          "precio": 160000,
+          "descripcion": "Corte importado (450gr) conocido por su excepcional jugosidad y sabor intenso. Su marmoleo perfecto garantiza una textura tierna que se deshace en tu boca, realzado por el toque ahumado de las brasas, acompañado de 3 esferas de maduro y ensalada fresca."
+        }
+      ]
+    },
+    {
+      "id": "adiciones",
+      "nombre": "ADICIONES",
+      "platos": [
+        { "id": "arroz", "nombre": "ARROZ", "precio": 3000, "descripcion": "" },
+        { "id": "salsa-ahioli", "nombre": "SALSA AHÍOLI", "precio": 2500, "descripcion": "" },
+        { "id": "salsa-tomate", "nombre": "SALSA DE TOMATE", "precio": 1000, "descripcion": "" },
+        { "id": "chimichurri", "nombre": "CHIMICHURRI", "precio": 2500, "descripcion": "" },
+        { "id": "aji", "nombre": "AJÍ", "precio": 2000, "descripcion": "" },
+        { "id": "guacamole", "nombre": "GUACAMOLE", "precio": 2500, "descripcion": "" },
+        { "id": "ensalada", "nombre": "ENSALADA", "precio": 6000, "descripcion": "" }
+      ]
+    },
+    {
+      "id": "bebidas",
+      "nombre": "BEBIDAS",
+      "platos": [
+        { "id": "gaseosas", "nombre": "GASEOSAS", "precio": 6000, "descripcion": "" },
+        { "id": "agua-hatsu", "nombre": "AGUA HATSU", "precio": 6000, "descripcion": "" },
+        { "id": "te-hatsu", "nombre": "TÉ HATSU", "precio": 10000, "descripcion": "" },
+        { "id": "jugo-agua", "nombre": "JUGO AGUA", "precio": 9000, "descripcion": "" },
+        { "id": "jugo-leche", "nombre": "JUGO LECHE", "precio": 10000, "descripcion": "" },
+        { "id": "limonada-natural", "nombre": "LIMONADA NATURAL", "precio": 10000, "descripcion": "" },
+        { "id": "limonada-saborizada", "nombre": "LIMONADA SABORIZADA", "precio": 16000, "descripcion": "" },
+        { "id": "soda-saborizada", "nombre": "SODA SABORIZADA", "precio": 16000, "descripcion": "" },
+        { "id": "michelado", "nombre": "MICHELADO", "precio": 2000, "descripcion": "" }
+      ]
+    },
+    {
+      "id": "licores",
+      "nombre": "LICORES",
+      "platos": [
+        { "id": "poker", "nombre": "POKER", "precio": 9000, "descripcion": "" },
+        { "id": "aguila", "nombre": "ÁGUILA", "precio": 9000, "descripcion": "" },
+        { "id": "club", "nombre": "CLUB", "precio": 9000, "descripcion": "" },
+        { "id": "corona", "nombre": "CORONA", "precio": 11000, "descripcion": "" },
+        { "id": "stella", "nombre": "STELLA", "precio": 11000, "descripcion": "" },
+        { "id": "rose-3-cordilleras", "nombre": "ROSE 3 CORDILLERAS", "precio": 11000, "descripcion": "" },
+        { "id": "copa-vino", "nombre": "COPA DE VINO", "precio": 17000, "descripcion": "" },
+        { "id": "margarita-tradicional", "nombre": "MARGARITA TRADICIONAL", "precio": 27000, "descripcion": "" },
+        { "id": "margarita-saborizada", "nombre": "MARGARITA SABORIZADA", "precio": 30000, "descripcion": "" },
+        { "id": "ginc-tonic", "nombre": "GINC TONIC", "precio": 35000, "descripcion": "" },
+        { "id": "copa-vino-caliente", "nombre": "COPA VINO CALIENTE", "precio": 23000, "descripcion": "" },
+        { "id": "refajo-dulce-marrano", "nombre": "REFAJO DULCE MARRANO X4 PUESTOS", "precio": 65000, "descripcion": "" },
+        { "id": "jarra-sangria", "nombre": "JARRA DE SANGRÍA X4 PUESTOS", "precio": 90000, "descripcion": "" },
+        { "id": "media-sangria", "nombre": "MEDIA SANGRÍA X2 PUESTOS", "precio": 50000, "descripcion": "" },
+        { "id": "copa-fruta-adicional", "nombre": "COPA DE FRUTA ADICIONAL", "precio": 7000, "descripcion": "" },
+        { "id": "copa-sangria", "nombre": "COPA DE SANGRÍA", "precio": 25000, "descripcion": "" }
+      ]
+    },
+    {
+      "id": "bebidas-calientes",
+      "nombre": "BEBIDAS CALIENTES",
+      "platos": [
+        { "id": "americano", "nombre": "AMERICANO", "precio": 6500, "descripcion": "" },
+        { "id": "capuchino", "nombre": "CAPUCHINO", "precio": 8500, "descripcion": "" },
+        { "id": "aromatica", "nombre": "AROMÁTICA", "precio": 6000, "descripcion": "" },
+        { "id": "late-frio", "nombre": "LATE FRÍO", "precio": 9000, "descripcion": "" }
+      ]
+    }
+  ],
+  "notas": [
+    "TODOS LOS GRAMAJES DE LA PROTEÍNA SON EN CRUDO",
+    "PREGUNTA POR NUESTRO PLATO OCULTO",
+    "Pregunta por nuestras cervezas importadas"
+  ]
+}

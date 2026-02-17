@@ -1,0 +1,12 @@
+# Imágenes del menú - Dulce Marrano
+# Cada línea asocia un plato con su foto. Formato: ID_PLATO|nombre-del-archivo.jpg
+# El ID del plato es el que aparece en menu.json en cada plato (campo "id").
+# Ejemplo: bondiola-hawaiana|bondiola-hawaiana.jpg
+# Deja las líneas que no uses comentadas con # al inicio.
+# Sube las fotos a esta misma carpeta (menu-imagenes).
+
+# Ejemplos (descomenta y cambia el nombre del archivo por tu foto):
+# bombas-maduro|bombas-maduro.jpg
+# bondiola-hawaiana|bondiola-hawaiana.jpg
+# costilla-dulce-pecado|costilla.jpg
+# nuestra-picada|picada.jpg
