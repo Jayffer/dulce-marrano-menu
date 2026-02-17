@@ -38,6 +38,18 @@
       scroll-behavior: smooth;
     }
     
+    .sr-only {
+      position: absolute !important;
+      width: 1px !important;
+      height: 1px !important;
+      padding: 0 !important;
+      margin: -1px !important;
+      overflow: hidden !important;
+      clip: rect(0, 0, 0, 0) !important;
+      white-space: nowrap !important;
+      border: 0 !important;
+    }
+    
     body {
       margin: 0;
       font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
@@ -162,7 +174,7 @@
       scroll-snap-type: x mandatory;
       scroll-behavior: smooth;
       -webkit-overflow-scrolling: touch;
-      min-height: calc(100dvh - 140px);
+      min-height: calc(100dvh - var(--header-h, 140px));
       padding-bottom: env(safe-area-inset-bottom, 0);
     }
     
@@ -423,7 +435,7 @@
 
   <header class="cabecera">
     <img class="cabecera-logo" src="assets/logo/logo dulce marrano.png" alt="Dulce Marrano">
-    <h1 id="titulo-sitio">Dulce Marrano</h1>
+    <h1 id="titulo-sitio" class="sr-only">Dulce Marrano</h1>
     <p class="subtitulo">Menú</p>
     <div class="indicator" id="indicator" aria-hidden="true"></div>
   </header>
@@ -456,6 +468,15 @@
       let menu = null;
       let tagsMap = {};
       let paginaActual = 0;
+
+      function actualizarAltoHeader() {
+        const header = document.querySelector('.cabecera');
+        if (!header) return;
+        document.documentElement.style.setProperty('--header-h', header.offsetHeight + 'px');
+      }
+      window.addEventListener('resize', actualizarAltoHeader);
+      window.addEventListener('orientationchange', actualizarAltoHeader);
+      setTimeout(actualizarAltoHeader, 0);
 
       function formatearPrecio(n) {
         return '$' + Number(n).toLocaleString('es-CO');
@@ -532,7 +553,7 @@
           flipbook.innerHTML = '<div class="error">No se pudo cargar el menú. Revisa que exista <code>menu.json</code>.</div>';
           return;
         }
-        tituloSitio.textContent = menu.nombre || 'Menú';
+        if (tituloSitio) tituloSitio.textContent = menu.nombre || 'Menú';
         menu.categorias.forEach(function (cat, idx) {
           const pag = document.createElement('div');
           pag.className = 'pagina';
