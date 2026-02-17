@@ -1,0 +1,21 @@
+El proyecto ya tiene un commit listo. Solo falta crear el repo en GitHub y enlazarlo.
+
+PASO 1 - Crear el repositorio en GitHub
+----------------------------------------
+1. Entra en https://github.com/new
+2. Nombre del repositorio: dulce-marrano-menu (o el que quieras)
+3. Deja "Public"
+4. NO marques "Add a README" ni .gitignore (el proyecto ya los tiene)
+5. Clic en "Create repository"
+
+PASO 2 - Enlazar y subir (en Cursor, abre la terminal en esta carpeta)
+----------------------------------------------------------------------
+Copia y pega estos comandos. Sustituye TU_USUARIO por tu usuario de GitHub
+y dulce-marrano-menu por el nombre del repo si lo cambiaste:
+
+  git remote add origin https://github.com/TU_USUARIO/dulce-marrano-menu.git
+  git branch -M main
+  git push -u origin main
+
+Si GitHub te pide usuario/contraseña: usa tu usuario y un "Personal Access Token"
+como contraseña (en GitHub: Settings → Developer settings → Personal access tokens).
