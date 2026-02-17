@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Borrar fondo (Adobe Express) – Dulce Marrano</title>
+    <style>
+      :root{
+        --bg:#0b0b0c;
+        --card: rgba(255,255,255,.08);
+        --card2: rgba(255,255,255,.12);
+        --text:#f5f5f5;
+        --muted: rgba(255,255,255,.7);
+        --accent:#998467;
+        --border: rgba(255,255,255,.12);
+        --r:18px;
+      }
+      *{box-sizing:border-box}
+      body{
+        margin:0;
+        font-family: system-ui, -apple-system, Segoe UI, sans-serif;
+        background: radial-gradient(1200px 600px at 20% 10%, rgba(153,132,103,.25), transparent 60%),
+                    radial-gradient(900px 500px at 90% 30%, rgba(255,255,255,.08), transparent 55%),
+                    var(--bg);
+        color:var(--text);
+        min-height:100dvh;
+      }
+      header{
+        position:sticky; top:0; z-index:10;
+        backdrop-filter: blur(18px) saturate(140%);
+        -webkit-backdrop-filter: blur(18px) saturate(140%);
+        background: rgba(0,0,0,.5);
+        border-bottom:1px solid var(--border);
+        padding:16px 18px;
+      }
+      h1{margin:0; font-size:16px; letter-spacing:.08em; text-transform:uppercase}
+      main{max-width:980px; margin:0 auto; padding:18px}
+      .grid{display:grid; gap:14px; grid-template-columns: 1fr}
+      @media (min-width:900px){ .grid{grid-template-columns: 380px 1fr} }
+      .card{
+        background: linear-gradient(135deg, var(--card) 0%, rgba(255,255,255,.06) 100%);
+        border:1px solid var(--border);
+        border-radius: var(--r);
+        box-shadow: 0 20px 60px rgba(0,0,0,.35);
+        overflow:hidden;
+      }
+      .card .p{padding:16px}
+      .hint{color:var(--muted); font-size:13px; line-height:1.55}
+      .warn{
+        margin-top:10px; padding:10px 12px;
+        background: rgba(153,132,103,.14);
+        border: 1px solid rgba(153,132,103,.25);
+        border-radius: 12px;
+        color: rgba(255,255,255,.9);
+        font-size:13px;
+      }
+      .row{display:flex; gap:10px; flex-wrap:wrap; align-items:center}
+      input[type="file"]{display:none}
+      .btn{
+        display:inline-flex; align-items:center; justify-content:center;
+        gap:10px;
+        padding:12px 14px;
+        border-radius: 14px;
+        border:1px solid rgba(255,255,255,.18);
+        background: rgba(255,255,255,.10);
+        color:var(--text);
+        cursor:pointer;
+        font-weight:600;
+        transition: transform .12s ease, background .12s ease;
+        user-select:none;
+      }
+      .btn:hover{background: rgba(255,255,255,.14); transform: translateY(-1px)}
+      .btn:active{transform: translateY(0)}
+      .btn.primary{
+        background: linear-gradient(135deg, rgba(153,132,103,.55), rgba(153,132,103,.25));
+        border-color: rgba(153,132,103,.65);
+      }
+      .btn.primary:hover{background: linear-gradient(135deg, rgba(153,132,103,.65), rgba(153,132,103,.30))}
+      .small{font-size:12px; color:var(--muted)}
+      .list{display:grid; gap:10px; margin-top:14px}
+      .item{
+        display:flex; gap:10px; align-items:center;
+        padding:10px 12px;
+        border-radius: 14px;
+        border:1px solid rgba(255,255,255,.12);
+        background: rgba(255,255,255,.06);
+      }
+      .thumb{
+        width:44px; height:44px; border-radius: 12px;
+        background: rgba(255,255,255,.10);
+        border:1px solid rgba(255,255,255,.12);
+        overflow:hidden;
+        display:flex; align-items:center; justify-content:center;
+        flex:0 0 auto;
+      }
+      .thumb img{width:100%; height:100%; object-fit:cover}
+      .name{font-weight:600; font-size:13px}
+      .status{font-size:12px; color:var(--muted)}
+      .right{margin-left:auto; display:flex; gap:8px; align-items:center}
+      .badge{
+        font-size:12px;
+        padding:4px 10px;
+        border-radius:999px;
+        border:1px solid rgba(255,255,255,.16);
+        color: rgba(255,255,255,.85);
+        background: rgba(0,0,0,.25);
+      }
+      .viewer{
+        min-height: 520px;
+        background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      }
+      .viewer .p{padding:16px}
+      #expressContainer{
+        width:100%;
+        height:min(78dvh, 820px);
+        border-top:1px solid rgba(255,255,255,.10);
+      }
+      code{font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px}
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Borrar fondo automático (Adobe Express)</h1>
+    </header>
+
+    <main>
+      <div class="grid">
+        <section class="card">
+          <div class="p">
+            <p class="hint">
+              Sube varias fotos, luego procesa una por una con <b>Remove background</b> (Adobe Express) y descarga el <b>PNG</b>.
+              Esto es lo más “automático” posible en navegador: por seguridad, la descarga requiere al menos un clic por imagen.
+            </p>
+
+            <div class="warn">
+              <b>Requisito:</b> crea una app del Embed SDK y pega tu <code>clientId</code> en <code>tools/express-bg-remove/config.js</code>
+              (tienes un ejemplo en <code>config.example.js</code>).
+            </div>
+
+            <div style="height:12px"></div>
+            <div class="row">
+              <label class="btn primary" for="fileInput">Seleccionar fotos</label>
+              <input id="fileInput" type="file" accept="image/*" multiple />
+              <button class="btn" id="btnStart" type="button" disabled>Procesar siguiente</button>
+            </div>
+            <div style="height:10px"></div>
+            <div class="small">
+              Consejo: exporta siempre como <b>PNG</b> para mantener la transparencia.
+            </div>
+
+            <div class="list" id="list"></div>
+          </div>
+        </section>
+
+        <section class="card viewer">
+          <div class="p">
+            <p class="hint">
+              Aquí se abre Adobe Express (iframe) con la herramienta de borrar fondo.
+              Cuando termine, elige <b>Download</b> (descargar) y guarda el PNG.
+            </p>
+          </div>
+          <div id="expressContainer"></div>
+        </section>
+      </div>
+    </main>
+
+    <!-- 1) Crea tools/express-bg-remove/config.js (copiando config.example.js) -->
+    <script src="./config.js"></script>
+    <!-- 2) SDK -->
+    <script src="https://sdk.cc-embed.adobe.com/v4/CCEverywhere.js"></script>
+
+    <script>
+      const fileInput = document.getElementById('fileInput');
+      const btnStart = document.getElementById('btnStart');
+      const list = document.getElementById('list');
+      const container = document.getElementById('expressContainer');
+
+      /** @type {{file: File, base64?: string, status: 'pendiente'|'listo'|'procesando'|'hecho'|'error', error?: string}[]} */
+      let queue = [];
+      let initialized = false;
+      let quickAction = null;
+      let currentIndex = -1;
+
+      function renderList() {
+        list.innerHTML = '';
+        queue.forEach((item, idx) => {
+          const row = document.createElement('div');
+          row.className = 'item';
+          const thumb = document.createElement('div');
+          thumb.className = 'thumb';
+          if (item.base64) {
+            const img = document.createElement('img');
+            img.src = item.base64;
+            thumb.appendChild(img);
+          } else {
+            thumb.textContent = '•';
+          }
+          const mid = document.createElement('div');
+          const name = document.createElement('div');
+          name.className = 'name';
+          name.textContent = item.file.name;
+          const st = document.createElement('div');
+          st.className = 'status';
+          st.textContent = item.error ? item.error : item.status;
+          mid.appendChild(name);
+          mid.appendChild(st);
+          const right = document.createElement('div');
+          right.className = 'right';
+          const badge = document.createElement('span');
+          badge.className = 'badge';
+          badge.textContent = (idx === currentIndex) ? 'ACTUAL' : '';
+          right.appendChild(badge);
+          row.appendChild(thumb);
+          row.appendChild(mid);
+          row.appendChild(right);
+          list.appendChild(row);
+        });
+        btnStart.disabled = queue.length === 0;
+      }
+
+      function fileToDataUrl(file) {
+        return new Promise((resolve, reject) => {
+          const reader = new FileReader();
+          reader.onerror = () => reject(new Error('No se pudo leer el archivo'));
+          reader.onload = () => resolve(String(reader.result));
+          reader.readAsDataURL(file);
+        });
+      }
+
+      function dataUrlToBase64(dataUrl) {
+        const i = dataUrl.indexOf(',');
+        if (i === -1) return '';
+        return dataUrl.slice(i + 1);
+      }
+
+      async function initSdk() {
+        if (initialized) return;
+        const clientId = window.EXPRESS_EMBED_CLIENT_ID;
+        if (!clientId || String(clientId).includes('PEGA_TU_CLIENT_ID')) {
+          alert('Falta configurar el clientId. Crea tools/express-bg-remove/config.js y pega tu clientId.');
+          throw new Error('Sin clientId');
+        }
+        const sdk = await window.CCEverywhere.initialize({
+          clientId,
+          appName: 'Dulce Marrano - Borrar fondo',
+        });
+        quickAction = sdk.quickAction;
+        initialized = true;
+      }
+
+      async function processNext() {
+        try {
+          await initSdk();
+          const next = queue.findIndex((x) => x.status === 'listo' || x.status === 'pendiente');
+          if (next === -1) return;
+          currentIndex = next;
+          queue[currentIndex].status = 'procesando';
+          renderList();
+
+          const item = queue[currentIndex];
+          if (!item.base64) {
+            const dataUrl = await fileToDataUrl(item.file);
+            item.base64 = dataUrl;
+          }
+          const base64Asset = dataUrlToBase64(item.base64);
+
+          // Limpia el contenedor (evita iframes apilados)
+          container.innerHTML = '';
+
+          const docConfig = {
+            asset: {
+              data: base64Asset,
+              dataType: 'base64',
+              type: 'image',
+            },
+          };
+
+          // Export options: mostramos Download (para que sea 1 clic y listo)
+          const exportOptions = [
+            {
+              id: 'download',
+              label: 'Descargar PNG',
+              action: { target: 'download' },
+              style: { uiType: 'button' },
+            },
+          ];
+
+          // Lanza el editor (iframe) en nuestro contenedor.
+          // Nota: el SDK abre en un iframe/modal; aquí lo hacemos embebido en el contenedor.
+          quickAction.removeBackground(docConfig, undefined, exportOptions, { element: container });
+
+          // Marcamos “hecho” cuando el usuario descargue manualmente.
+          // No hay callback fiable aquí sin integrar publish/webhooks; dejamos el botón para avanzar.
+          queue[currentIndex].status = 'hecho';
+          renderList();
+        } catch (e) {
+          const msg = e && e.message ? e.message : String(e);
+          if (currentIndex >= 0 && queue[currentIndex]) {
+            queue[currentIndex].status = 'error';
+            queue[currentIndex].error = msg;
+          }
+          renderList();
+          console.error(e);
+        }
+      }
+
+      fileInput.addEventListener('change', async (e) => {
+        const files = Array.from(e.target.files || []);
+        queue = files.map((f) => ({ file: f, status: 'pendiente' }));
+        // Pre-cargamos miniaturas en background para que se vea bonito.
+        for (const item of queue) {
+          try {
+            const dataUrl = await fileToDataUrl(item.file);
+            item.base64 = dataUrl;
+            item.status = 'listo';
+          } catch {
+            item.status = 'error';
+            item.error = 'No se pudo leer';
+          }
+          renderList();
+        }
+      });
+
+      btnStart.addEventListener('click', processNext);
+
+      renderList();
+    </script>
+  </body>
+</html>
+
