@@ -3,65 +3,167 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#5c4033">
+  <meta name="theme-color" content="#654418">
   <title>Menú – Dulce Marrano</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --beige: #f5f0e8;
-      --beige-oscuro: #e8e0d4;
-      --cafe: #3d2914;
-      --cafe-claro: #5c4033;
-      --borgoña: #6b2d3c;
-      --borgoña-oscuro: #4a1f2a;
-      --sombra: rgba(61, 41, 20, 0.12);
-      --radio: 12px;
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+    
+    @font-face {
+      font-family: 'Pink Broccoli';
+      src: url('assets/fonts/PinkBroccoli-Regular.woff2') format('woff2'),
+           url('assets/fonts/PinkBroccoli-Regular.woff') format('woff'),
+           url('assets/fonts/PinkBroccoli-Regular.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
     }
-    *, *::before, *::after { box-sizing: border-box; }
-    html { font-size: clamp(14px, 2.8vw, 17px); -webkit-tap-highlight-color: transparent; }
+    
+    :root {
+      --texto: #654418;
+      --fondo: #f0e8db;
+      --etiquetas: #998467;
+      --blanco: #ffffff;
+      --negro: #000000;
+      --sombra-suave: rgba(101, 68, 24, 0.08);
+      --sombra-media: rgba(101, 68, 24, 0.15);
+      --sombra-fuerte: rgba(101, 68, 24, 0.25);
+      --glass-bg: rgba(255, 255, 255, 0.7);
+      --glass-border: rgba(255, 255, 255, 0.3);
+      --radio: 16px;
+      --radio-grande: 24px;
+    }
+    
+    *, *::before, *::after { 
+      box-sizing: border-box; 
+      margin: 0;
+      padding: 0;
+    }
+    
+    html { 
+      font-size: clamp(14px, 2.8vw, 17px); 
+      -webkit-tap-highlight-color: transparent;
+      scroll-behavior: smooth;
+    }
+    
     body {
       margin: 0;
-      font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
-      background: var(--beige);
-      color: var(--cafe);
+      font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
+      background: var(--fondo);
+      color: var(--texto);
       min-height: 100dvh;
       overflow-x: hidden;
       -webkit-overflow-scrolling: touch;
+      position: relative;
     }
+    
+    /* Loader */
+    .loader {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: var(--negro);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+    }
+    
+    .loader.oculto {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+    
+    .loader-logo {
+      width: 120px;
+      height: 120px;
+      margin-bottom: 1.5rem;
+      animation: logoFloat 1s ease-in-out infinite alternate;
+      filter: brightness(0) invert(1);
+    }
+    
+    @keyframes logoFloat {
+      0% { transform: translateY(0) scale(1); }
+      100% { transform: translateY(-10px) scale(1.05); }
+    }
+    
+    .loader-texto {
+      color: var(--blanco);
+      font-family: 'Pink Broccoli', serif;
+      font-size: 1.8rem;
+      letter-spacing: 0.05em;
+      animation: textoPulse 1s ease-in-out infinite;
+    }
+    
+    @keyframes textoPulse {
+      0%, 100% { opacity: 0.8; }
+      50% { opacity: 1; }
+    }
+    
+    /* Cabecera con glassmorphism */
     .cabecera {
       position: sticky;
       top: 0;
-      z-index: 10;
-      background: linear-gradient(180deg, var(--beige) 0%, var(--beige) 85%, transparent 100%);
-      padding: 0.6rem 1rem 0.8rem;
+      z-index: 100;
+      background: rgba(240, 232, 219, 0.85);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid var(--glass-border);
+      padding: 1rem 1.25rem 1rem;
       text-align: center;
-      border-bottom: 1px solid var(--beige-oscuro);
+      box-shadow: 0 2px 20px var(--sombra-suave);
     }
+    
     .cabecera h1 {
       margin: 0;
-      font-size: 1.35rem;
-      font-weight: 700;
-      color: var(--cafe);
-      letter-spacing: 0.02em;
+      font-family: 'Pink Broccoli', serif;
+      font-size: 1.8rem;
+      font-weight: normal;
+      color: var(--texto);
+      letter-spacing: 0.03em;
+      text-shadow: 0 1px 2px var(--sombra-suave);
     }
-    .cabecera .subtitulo { font-size: 0.75rem; color: var(--cafe-claro); margin-top: 0.15rem; }
+    
+    .cabecera .subtitulo { 
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem; 
+      color: var(--etiquetas); 
+      margin-top: 0.25rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    
     .indicator {
       display: flex;
       justify-content: center;
-      gap: 6px;
-      margin-top: 0.5rem;
+      gap: 8px;
+      margin-top: 0.75rem;
       flex-wrap: wrap;
     }
+    
     .indicator span {
-      width: 6px;
-      height: 6px;
+      width: 8px;
+      height: 8px;
       border-radius: 50%;
-      background: var(--beige-oscuro);
-      transition: transform 0.2s, background 0.2s;
+      background: rgba(153, 132, 103, 0.3);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      backdrop-filter: blur(4px);
     }
+    
     .indicator span.activo {
-      background: var(--borgoña);
-      transform: scale(1.3);
+      background: var(--etiquetas);
+      transform: scale(1.4);
+      box-shadow: 0 2px 8px rgba(153, 132, 103, 0.4);
     }
+    
+    /* Flipbook mejorado */
     .flipbook {
       display: flex;
       overflow-x: auto;
@@ -69,68 +171,163 @@
       scroll-snap-type: x mandatory;
       scroll-behavior: smooth;
       -webkit-overflow-scrolling: touch;
-      min-height: calc(100dvh - 120px);
+      min-height: calc(100dvh - 140px);
+      padding-bottom: env(safe-area-inset-bottom, 0);
     }
+    
     .flipbook::-webkit-scrollbar { display: none; }
     .flipbook { scrollbar-width: none; }
+    
     .pagina {
       flex: 0 0 100%;
       width: 100%;
       min-height: 100%;
       scroll-snap-align: start;
       scroll-snap-stop: always;
-      padding: 1rem 1rem 2rem;
-      padding-bottom: max(2rem, env(safe-area-inset-bottom));
+      padding: 1.5rem 1.25rem 2.5rem;
+      padding-bottom: max(2.5rem, env(safe-area-inset-bottom));
     }
+    
+    /* Título de categoría con glassmorphism */
     .pagina .titulo-cat {
-      background: var(--borgoña);
-      color: #fff;
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      padding: 0.5rem 0.75rem;
-      margin: 0 0 1rem 0;
-      border-radius: 0 0 var(--radio) 0;
-      display: inline-block;
-    }
-    .plato {
-      background: #fff;
-      border-radius: var(--radio);
-      padding: 0.9rem 1rem;
-      margin-bottom: 0.75rem;
-      box-shadow: 0 2px 8px var(--sombra);
-      border: 1px solid var(--beige-oscuro);
-      cursor: pointer;
-      transition: transform 0.15s, box-shadow 0.15s;
-    }
-    .plato:active { transform: scale(0.99); }
-    .plato-con-img { display: grid; grid-template-columns: 1fr auto; gap: 0.75rem; align-items: start; }
-    .plato-con-img .miniatura {
-      width: 72px;
-      height: 72px;
-      border-radius: 8px;
-      object-fit: cover;
-      background: var(--beige-oscuro);
-    }
-    .plato-nombre { font-weight: 700; font-size: 0.95rem; color: var(--cafe); margin: 0 0 0.25rem 0; line-height: 1.25; }
-    .plato-precio { font-weight: 700; color: var(--borgoña); font-size: 1rem; }
-    .plato-desc { font-size: 0.8rem; color: var(--cafe-claro); line-height: 1.4; margin: 0.35rem 0 0 0; }
-    .notas {
-      margin-top: 1.5rem;
-      padding: 0.75rem 1rem;
-      background: var(--beige-oscuro);
-      border-radius: var(--radio);
+      background: linear-gradient(135deg, rgba(153, 132, 103, 0.9) 0%, rgba(153, 132, 103, 0.7) 100%);
+      backdrop-filter: blur(10px) saturate(150%);
+      -webkit-backdrop-filter: blur(10px) saturate(150%);
+      color: var(--blanco);
+      font-family: 'Montserrat', sans-serif;
       font-size: 0.75rem;
-      color: var(--cafe-claro);
-      text-align: center;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      padding: 0.65rem 1.25rem;
+      margin: 0 0 1.5rem 0;
+      border-radius: 0 0 var(--radio-grande) 0;
+      display: inline-block;
+      box-shadow: 0 4px 12px var(--sombra-media);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      text-transform: uppercase;
     }
-    .notas p { margin: 0.25rem 0; }
-    /* Modal imagen */
+    
+    /* Tarjetas de platos con glassmorphism */
+    .plato {
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-radius: var(--radio);
+      padding: 1.25rem 1.25rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 4px 20px var(--sombra-suave), 0 1px 3px var(--sombra-media);
+      border: 1px solid var(--glass-border);
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .plato::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--etiquetas), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    
+    .plato:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px var(--sombra-media), 0 2px 8px var(--sombra-suave);
+      border-color: rgba(153, 132, 103, 0.4);
+    }
+    
+    .plato:hover::before {
+      opacity: 1;
+    }
+    
+    .plato:active { 
+      transform: translateY(0) scale(0.98); 
+    }
+    
+    .plato-con-img { 
+      display: grid; 
+      grid-template-columns: 1fr auto; 
+      gap: 1rem; 
+      align-items: start; 
+    }
+    
+    .plato-con-img .miniatura {
+      width: 80px;
+      height: 80px;
+      border-radius: 12px;
+      object-fit: cover;
+      background: linear-gradient(135deg, var(--fondo), rgba(153, 132, 103, 0.1));
+      box-shadow: 0 2px 8px var(--sombra-suave);
+      border: 1px solid var(--glass-border);
+      transition: transform 0.3s;
+    }
+    
+    .plato-con-img:hover .miniatura {
+      transform: scale(1.05);
+    }
+    
+    .plato-nombre { 
+      font-family: 'Pink Broccoli', serif;
+      font-weight: normal;
+      font-size: 1.1rem; 
+      color: var(--texto); 
+      margin: 0 0 0.4rem 0; 
+      line-height: 1.3;
+      letter-spacing: 0.02em;
+    }
+    
+    .plato-precio { 
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700; 
+      color: var(--etiquetas); 
+      font-size: 1.15rem;
+      letter-spacing: 0.02em;
+    }
+    
+    .plato-desc { 
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.85rem; 
+      color: rgba(101, 68, 24, 0.75); 
+      line-height: 1.5; 
+      margin: 0.5rem 0 0 0;
+      font-weight: 400;
+    }
+    
+    /* Notas con glassmorphism */
+    .notas {
+      margin-top: 2rem;
+      padding: 1.25rem 1.5rem;
+      background: var(--glass-bg);
+      backdrop-filter: blur(15px) saturate(150%);
+      -webkit-backdrop-filter: blur(15px) saturate(150%);
+      border-radius: var(--radio);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8rem;
+      color: rgba(101, 68, 24, 0.8);
+      text-align: center;
+      box-shadow: 0 4px 16px var(--sombra-suave);
+      border: 1px solid var(--glass-border);
+      font-weight: 500;
+    }
+    
+    .notas p { 
+      margin: 0.4rem 0;
+      line-height: 1.6;
+    }
+    
+    /* Modal mejorado */
     .modal {
       position: fixed;
       inset: 0;
-      z-index: 20;
-      background: rgba(0,0,0,0.85);
+      z-index: 200;
+      background: rgba(0, 0, 0, 0.92);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -138,52 +335,101 @@
       padding: 1rem;
       opacity: 0;
       visibility: hidden;
-      transition: opacity 0.2s, visibility 0.2s;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
     }
-    .modal.abierto { opacity: 1; visibility: visible; }
+    
+    .modal.abierto { 
+      opacity: 1; 
+      visibility: visible; 
+    }
+    
     .modal .cerrar {
       position: absolute;
-      top: env(safe-area-inset-top, 0.5rem);
+      top: max(env(safe-area-inset-top, 0.5rem), 1rem);
       right: 1rem;
-      width: 40px;
-      height: 40px;
+      width: 44px;
+      height: 44px;
       border: none;
-      background: rgba(255,255,255,0.2);
-      color: #fff;
-      font-size: 1.5rem;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      color: var(--blanco);
+      font-size: 1.75rem;
       line-height: 1;
       border-radius: 50%;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
+      transition: all 0.2s;
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
+    
+    .modal .cerrar:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: scale(1.1);
+    }
+    
     .modal img {
-      max-width: 100%;
+      max-width: 95%;
       max-height: 75vh;
       width: auto;
       height: auto;
-      border-radius: var(--radio);
+      border-radius: var(--radio-grande);
       object-fit: contain;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+      border: 2px solid rgba(255, 255, 255, 0.1);
     }
-    .modal .pie { color: #fff; font-size: 0.9rem; margin-top: 0.75rem; text-align: center; }
+    
+    .modal .pie { 
+      color: var(--blanco); 
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1rem; 
+      margin-top: 1rem; 
+      text-align: center;
+      font-weight: 500;
+      padding: 0 1rem;
+    }
+    
     .cargando {
       text-align: center;
       padding: 3rem 1rem;
-      color: var(--cafe-claro);
+      color: var(--texto);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1rem;
     }
-    .error { text-align: center; padding: 2rem 1rem; color: var(--borgoña); }
+    
+    .error { 
+      text-align: center; 
+      padding: 2rem 1rem; 
+      color: var(--etiquetas);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 500;
+    }
   </style>
 </head>
 <body>
+  <!-- Loader -->
+  <div class="loader" id="loader">
+    <object class="loader-logo" type="image/svg+xml" data="assets/logo.svg" aria-label="Logo Dulce Marrano">
+      <!-- Fallback si el SVG no carga -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4129 3791" fill="white">
+        <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="400" font-family="serif">DM</text>
+      </svg>
+    </object>
+    <div class="loader-texto">Dulce Marrano</div>
+  </div>
+
   <header class="cabecera">
     <h1 id="titulo-sitio">Dulce Marrano</h1>
     <p class="subtitulo">Menú</p>
     <div class="indicator" id="indicator" aria-hidden="true"></div>
   </header>
+  
   <main class="flipbook" id="flipbook" role="region" aria-label="Menú por categorías">
     <div class="cargando" id="cargando">Cargando menú…</div>
   </main>
+  
   <div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Ver imagen">
     <button type="button" class="cerrar" id="cerrar-modal" aria-label="Cerrar">×</button>
     <img id="modal-img" src="" alt="">
@@ -192,6 +438,12 @@
 
   <script>
     (function () {
+      // Ocultar loader después de 1 segundo
+      const loader = document.getElementById('loader');
+      setTimeout(function() {
+        loader.classList.add('oculto');
+      }, 1000);
+      
       const flipbook = document.getElementById('flipbook');
       const indicator = document.getElementById('indicator');
       const tituloSitio = document.getElementById('titulo-sitio');
