@@ -71,10 +71,11 @@
     }
     
     .loader-logo {
-      width: 140px;
-      height: 140px;
-      margin-bottom: 1.5rem;
+      width: 200px;
+      height: auto;
+      max-height: 180px;
       animation: logoFloat 1s ease-in-out infinite alternate;
+      filter: brightness(0) invert(1);
     }
     
     @keyframes logoFloat {
@@ -82,14 +83,6 @@
       100% { transform: translateY(-10px) scale(1.05); }
     }
     
-    .loader-texto {
-      color: var(--blanco);
-      font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
-      letter-spacing: 0.05em;
-      animation: textoPulse 1s ease-in-out infinite;
-      font-weight: 700;
-    }
     
     @keyframes textoPulse {
       0%, 100% { opacity: 0.8; }
@@ -101,23 +94,24 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(240, 232, 219, 0.85);
-      backdrop-filter: blur(20px) saturate(180%);
-      -webkit-backdrop-filter: blur(20px) saturate(180%);
-      border-bottom: 1px solid var(--glass-border);
-      padding: 1rem 1.25rem 1rem;
+      background: rgba(240, 232, 219, 0.9);
+      backdrop-filter: blur(25px) saturate(180%);
+      -webkit-backdrop-filter: blur(25px) saturate(180%);
+      border-bottom: 1.5px solid rgba(153, 132, 103, 0.2);
+      padding: 1.25rem 1.5rem 1.25rem;
       text-align: center;
-      box-shadow: 0 2px 20px var(--sombra-suave);
+      box-shadow: 0 4px 24px rgba(101, 68, 24, 0.08),
+                  0 1px 3px rgba(101, 68, 24, 0.05);
     }
     
     .cabecera h1 {
       margin: 0;
       font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
+      font-size: 2rem;
       font-weight: 700;
       color: var(--texto);
-      letter-spacing: 0.03em;
-      text-shadow: 0 1px 2px var(--sombra-suave);
+      letter-spacing: 0.02em;
+      text-shadow: 0 2px 4px rgba(101, 68, 24, 0.1);
     }
     
     .cabecera .subtitulo { 
@@ -174,41 +168,47 @@
       min-height: 100%;
       scroll-snap-align: start;
       scroll-snap-stop: always;
-      padding: 1.5rem 1.25rem 2.5rem;
-      padding-bottom: max(2.5rem, env(safe-area-inset-bottom));
+      padding: 2rem 1.5rem 3rem;
+      padding-bottom: max(3rem, env(safe-area-inset-bottom));
+      max-width: 600px;
+      margin: 0 auto;
     }
     
-    /* Título de categoría con glassmorphism */
+    /* Título de categoría con glassmorphism mejorado */
     .pagina .titulo-cat {
-      background: linear-gradient(135deg, rgba(153, 132, 103, 0.9) 0%, rgba(153, 132, 103, 0.7) 100%);
-      backdrop-filter: blur(10px) saturate(150%);
-      -webkit-backdrop-filter: blur(10px) saturate(150%);
+      background: linear-gradient(135deg, rgba(153, 132, 103, 0.95) 0%, rgba(153, 132, 103, 0.85) 100%);
+      backdrop-filter: blur(15px) saturate(150%);
+      -webkit-backdrop-filter: blur(15px) saturate(150%);
       color: var(--blanco);
       font-family: 'Montserrat', sans-serif;
-      font-size: 0.75rem;
+      font-size: 0.8rem;
       font-weight: 700;
-      letter-spacing: 0.2em;
-      padding: 0.65rem 1.25rem;
-      margin: 0 0 1.5rem 0;
+      letter-spacing: 0.25em;
+      padding: 0.85rem 1.75rem;
+      margin: 0 0 2rem 0;
       border-radius: 0 0 var(--radio-grande) 0;
       display: inline-block;
-      box-shadow: 0 4px 12px var(--sombra-media);
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 6px 20px rgba(153, 132, 103, 0.3), 
+                  0 2px 8px rgba(153, 132, 103, 0.2),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.3);
+      border: 1.5px solid rgba(255, 255, 255, 0.25);
       text-transform: uppercase;
     }
     
-    /* Tarjetas de platos con glassmorphism */
+    /* Tarjetas de platos con glassmorphism mejorado */
     .plato {
-      background: var(--glass-bg);
-      backdrop-filter: blur(20px) saturate(180%);
-      -webkit-backdrop-filter: blur(20px) saturate(180%);
-      border-radius: var(--radio);
-      padding: 1.25rem 1.25rem;
-      margin-bottom: 1rem;
-      box-shadow: 0 4px 20px var(--sombra-suave), 0 1px 3px var(--sombra-media);
-      border: 1px solid var(--glass-border);
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(25px) saturate(180%);
+      -webkit-backdrop-filter: blur(25px) saturate(180%);
+      border-radius: var(--radio-grande);
+      padding: 1.5rem 1.5rem;
+      margin-bottom: 1.25rem;
+      box-shadow: 0 8px 32px rgba(101, 68, 24, 0.1), 
+                  0 2px 8px rgba(101, 68, 24, 0.08),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.9);
+      border: 1.5px solid rgba(255, 255, 255, 0.4);
       cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       position: relative;
       overflow: hidden;
     }
@@ -226,9 +226,12 @@
     }
     
     .plato:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 30px var(--sombra-media), 0 2px 8px var(--sombra-suave);
-      border-color: rgba(153, 132, 103, 0.4);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(101, 68, 24, 0.15), 
+                  0 4px 16px rgba(101, 68, 24, 0.1),
+                  inset 0 1px 0 rgba(255, 255, 255, 1);
+      border-color: rgba(153, 132, 103, 0.5);
+      background: rgba(255, 255, 255, 0.85);
     }
     
     .plato:hover::before {
@@ -247,62 +250,69 @@
     }
     
     .plato-con-img .miniatura {
-      width: 80px;
-      height: 80px;
-      border-radius: 12px;
+      width: 100px;
+      height: 100px;
+      border-radius: 16px;
       object-fit: cover;
       background: linear-gradient(135deg, var(--fondo), rgba(153, 132, 103, 0.1));
-      box-shadow: 0 2px 8px var(--sombra-suave);
-      border: 1px solid var(--glass-border);
-      transition: transform 0.3s;
+      box-shadow: 0 4px 16px rgba(101, 68, 24, 0.15), 
+                  0 2px 4px rgba(101, 68, 24, 0.1);
+      border: 2px solid rgba(255, 255, 255, 0.5);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
     
     .plato-con-img:hover .miniatura {
-      transform: scale(1.05);
+      transform: scale(1.08);
+      box-shadow: 0 8px 24px rgba(101, 68, 24, 0.2), 
+                  0 4px 8px rgba(101, 68, 24, 0.15);
     }
     
     .plato-nombre { 
       font-family: 'Playfair Display', serif;
       font-weight: 700;
-      font-size: 1.1rem; 
+      font-size: 1.25rem; 
       color: var(--texto); 
-      margin: 0 0 0.4rem 0; 
-      line-height: 1.3;
-      letter-spacing: 0.02em;
+      margin: 0 0 0.5rem 0; 
+      line-height: 1.35;
+      letter-spacing: 0.01em;
     }
     
     .plato-precio { 
       font-family: 'Montserrat', sans-serif;
       font-weight: 700; 
       color: var(--etiquetas); 
-      font-size: 1.15rem;
-      letter-spacing: 0.02em;
+      font-size: 1.3rem;
+      letter-spacing: 0.01em;
+      margin-bottom: 0.5rem;
     }
     
     .plato-desc { 
       font-family: 'Montserrat', sans-serif;
-      font-size: 0.85rem; 
-      color: rgba(101, 68, 24, 0.75); 
-      line-height: 1.5; 
-      margin: 0.5rem 0 0 0;
+      font-size: 0.9rem; 
+      color: rgba(101, 68, 24, 0.7); 
+      line-height: 1.6; 
+      margin: 0.75rem 0 0 0;
       font-weight: 400;
     }
     
-    /* Notas con glassmorphism */
+    /* Notas con glassmorphism mejorado */
     .notas {
-      margin-top: 2rem;
-      padding: 1.25rem 1.5rem;
-      background: var(--glass-bg);
-      backdrop-filter: blur(15px) saturate(150%);
-      -webkit-backdrop-filter: blur(15px) saturate(150%);
-      border-radius: var(--radio);
+      margin-top: 2.5rem;
+      padding: 1.5rem 1.75rem;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(20px) saturate(150%);
+      -webkit-backdrop-filter: blur(20px) saturate(150%);
+      border-radius: var(--radio-grande);
       font-family: 'Montserrat', sans-serif;
-      font-size: 0.8rem;
-      color: rgba(101, 68, 24, 0.8);
+      font-size: 0.85rem;
+      color: rgba(101, 68, 24, 0.85);
       text-align: center;
-      box-shadow: 0 4px 16px var(--sombra-suave);
-      border: 1px solid var(--glass-border);
+      box-shadow: 0 8px 32px rgba(101, 68, 24, 0.1),
+                  0 2px 8px rgba(101, 68, 24, 0.08),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.9);
+      border: 1.5px solid rgba(255, 255, 255, 0.4);
       font-weight: 500;
+      line-height: 1.7;
     }
     
     .notas p { 
@@ -401,14 +411,7 @@
 <body>
   <!-- Loader -->
   <div class="loader" id="loader">
-    <svg class="loader-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="white" aria-label="Logo Dulce Marrano">
-      <!-- Logo estilizado DM con diseño elegante -->
-      <circle cx="100" cy="100" r="90" fill="none" stroke="white" stroke-width="3" opacity="0.3"/>
-      <text x="100" y="120" font-family="'Playfair Display', serif" font-size="80" font-weight="700" text-anchor="middle" fill="white" letter-spacing="0.05em">DM</text>
-      <!-- Decoración sutil -->
-      <circle cx="100" cy="100" r="5" fill="white" opacity="0.6"/>
-    </svg>
-    <div class="loader-texto">Dulce Marrano</div>
+    <img class="loader-logo" src="assets/logo/logo dulce marrano.png" alt="Dulce Marrano">
   </div>
 
   <header class="cabecera">
